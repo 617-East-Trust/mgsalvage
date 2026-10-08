@@ -1,6 +1,11 @@
 import { useEffect } from "react";
 import { COMPANY, TESTIMONIALS, SERVICE_AREAS } from "@/lib/siteData";
 
+function normalizeCanonicalPath(value: string): string {
+  const path = value.startsWith("/") ? value : `/${value}`;
+  return path === "/" ? "/" : `${path.replace(/\/+$/, "")}/`;
+}
+
 interface SEOHeadProps {
   title: string;
   description: string;
@@ -13,6 +18,9 @@ interface SEOHeadProps {
 export default function SEOHead({ title, description, canonical, keywords, schemas, noIndex = false }: SEOHeadProps) {
   useEffect(() => {
     const fullTitle = `${title} | MG Salvage`;
+    const canonicalUrl = canonical
+      ? `https://mgsalvage.com${normalizeCanonicalPath(canonical)}`
+      : undefined;
     document.title = fullTitle;
 
     // Meta description
@@ -54,8 +62,8 @@ export default function SEOHead({ title, description, canonical, keywords, schem
       "og:image:width": "1200",
       "og:image:height": "630",
     };
-    if (canonical) {
-      ogTags["og:url"] = `https://mgsalvage.com${canonical}`;
+    if (canonicalUrl) {
+      ogTags["og:url"] = canonicalUrl;
     }
     Object.entries(ogTags).forEach(([property, content]) => {
       let meta = document.querySelector(`meta[property="${property}"]`);
@@ -85,14 +93,14 @@ export default function SEOHead({ title, description, canonical, keywords, schem
     });
 
     // Canonical
-    if (canonical) {
+    if (canonicalUrl) {
       let link = document.querySelector('link[rel="canonical"]');
       if (!link) {
         link = document.createElement("link");
         link.setAttribute("rel", "canonical");
         document.head.appendChild(link);
       }
-      link.setAttribute("href", `https://mgsalvage.com${canonical}`);
+      link.setAttribute("href", canonicalUrl);
     }
 
     // JSON-LD schemas

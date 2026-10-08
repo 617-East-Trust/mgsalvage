@@ -10,7 +10,7 @@ export default function PrivacyPolicy() {
       <SEOHead
         title="Privacy Policy"
         description="MG Salvage's privacy policy explaining how we collect, use, and protect your personal information when you use our junk car removal services."
-        canonical="/privacy"
+        canonical="/privacy-policy"
         keywords="privacy policy, MG Salvage, data protection, personal information"
         noIndex={false}
         schemas={[{

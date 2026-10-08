@@ -10,7 +10,7 @@ export default function TermsOfService() {
       <SEOHead
         title="Terms of Service"
         description="MG Salvage's terms of service for junk car removal, vehicle acquisition, and related services in Sanford, NC and surrounding areas."
-        canonical="/terms"
+        canonical="/terms-of-service"
         keywords="terms of service, MG Salvage, junk car removal, vehicle acquisition, conditions"
         noIndex={false}
         schemas={[{

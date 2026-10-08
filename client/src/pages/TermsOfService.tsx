@@ -18,7 +18,7 @@ export default function TermsOfService() {
           "@type": "WebPage",
           name: "Terms of Service",
           description: "Terms and conditions for MG Salvage junk car removal services",
-          url: "https://mgsalvage.com/terms-of-service",
+          url: "https://mgsalvage.com/terms-of-service/",
           publisher: {
             "@type": "Organization",
             name: "MG Salvage",

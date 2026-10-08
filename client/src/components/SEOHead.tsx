@@ -229,7 +229,13 @@ export function breadcrumbSchema(items: { name: string; url?: string }[]) {
         "@type": "ListItem",
         position: i + 2,
         name: item.name,
-        ...(item.url ? { item: `https://mgsalvage.com${item.url}` } : {}),
+        ...(item.url
+          ? {
+              item: item.url.startsWith("http")
+                ? item.url
+                : `https://mgsalvage.com${normalizeCanonicalPath(item.url)}`,
+            }
+          : {}),
       })),
     ],
   };

@@ -18,7 +18,7 @@ export default function PrivacyPolicy() {
           "@type": "WebPage",
           name: "Privacy Policy",
           description: "MG Salvage's privacy policy for junk car removal services in Sanford, NC",
-          url: "https://mgsalvage.com/privacy-policy",
+          url: "https://mgsalvage.com/privacy-policy/",
           publisher: {
             "@type": "Organization",
             name: "MG Salvage",
